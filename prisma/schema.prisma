@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../recipes.db"
+}
+
+model Recipe {
+  id              Int     @id @default(autoincrement())
+  title           String
+  url             String?
+  category        String?
+  author          String?
+  description     String?
+  rating          Float?
+  ratingCount     Int?    @map("rating_count")
+  reviewCount     Int?    @map("review_count")
+  ingredients     String
+  directions      String
+  prepTime        String? @map("prep_time")
+  cookTime        String? @map("cook_time")
+  totalTime       String? @map("total_time")
+  servings        Int?
+  yields          String?
+  calories        Int?
+  carbohydrates   Float?  @map("carbohydrates_g")
+  sugars          Float?  @map("sugars_g")
+  fat             Float?  @map("fat_g")
+  protein         Float?  @map("protein_g")
+  sodium          Int?    @map("sodium_mg")
+  instructionList String? @map("instructions_list")
+  image           String?
+}
